@@ -1,0 +1,38 @@
+vnfd:vnfd-catalog:
+  vnfd:
+  - connection-point:
+    - name: data
+      type: VPORT
+    - name: mgmt
+      type: VPORT
+    description: LS Virtual TS
+    id: lsv_ts_vnf
+    internal-vld: []
+    mgmt-interface:
+      cp: mgmt
+    name: lsv_ts_vnf
+    short-name: lsv_ts_vnf
+    vdu:
+    - count: '1'
+      description: LS Virtual VM
+      id: ls_ts_vnf
+      image: lsv_ts_19.8
+      interface:
+      - external-connection-point-ref: mgmt
+        name: admin0
+        type: EXTERNAL
+        virtual-interface:
+          type: VIRTIO
+      - external-connection-point-ref: data
+        name: eth0
+        type: EXTERNAL
+        virtual-interface:
+          type: VIRTIO
+      internal-connection-point: []
+      monitoring-param: []
+      name: lsv_ts_vnf
+      vm-flavor:
+        memory-mb: '3072'
+        storage-gb: '21'
+        vcpu-count: '3'
+    version: '1.0'
